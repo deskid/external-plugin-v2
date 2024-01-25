@@ -17,11 +17,11 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+Show the source code [Groovy、Java、Class] for Android Gradle Plugin and Custom Gradle Plugin. Such as External Libraries.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+<img src='https://raw.githubusercontent.com/Sunzxyong/external-plugin-support/master/external-plugins.png' width='320' height='206'/>
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+
 <!-- Plugin description end -->
 
 ## Installation

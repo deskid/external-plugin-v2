@@ -1,3 +1,4 @@
+import java.util.Properties
 import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.markdownToHTML
 
@@ -114,10 +115,17 @@ tasks {
         systemProperty("jb.consents.confirmation.enabled", "false")
     }
 
+
+    val localProperties = Properties()
+    localProperties.load(
+        project.file("local.properties")
+            .inputStream()
+    )
+
     signPlugin {
-        certificateChain = environment("CERTIFICATE_CHAIN")
-        privateKey = environment("PRIVATE_KEY")
-        password = environment("PRIVATE_KEY_PASSWORD")
+        certificateChainFile.set(file(localProperties["CERTIFICATE_CHAIN"] ?: ""))
+        privateKeyFile.set(file(localProperties["PRIVATE_KEY"] ?: ""))
+        password.set(localProperties["PRIVATE_KEY_PASSWORD"].toString())
     }
 
     publishPlugin {
@@ -127,5 +135,9 @@ tasks {
         // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
         // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
         channels = properties("pluginVersion").map { listOf(it.split('-').getOrElse(1) { "default" }.split('.').first()) }
+    }
+
+    buildSearchableOptions {
+        enabled = false
     }
 }

@@ -1,18 +1,15 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.deskid.externalpluginv2</id>
-    <name>external-plugin-v2 Template</name>
+    <id>com.github.deskid.external.view</id>
+    <name>Android External Plugin v2</name>
     <vendor>deskid</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.intellij.groovy</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.deskid.externalpluginv2.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <!-- Add your extensions here -->
+        <treeStructureProvider implementation="com.github.deskid.external.plugin.GradlePluginTreeStructureProvider"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.deskid.externalpluginv2.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>

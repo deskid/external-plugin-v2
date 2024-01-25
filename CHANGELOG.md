@@ -4,4 +4,6 @@
 
 ## [Unreleased]
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+
+- folk from [external-plugin-support](https://github.com/Sunzxyong/external-plugin-support) and make it work on latest
+  Android Studio
