@@ -1,7 +1,7 @@
-# external-plugin-v2
+# external-build-libraries
 
 ![Build](https://github.com/deskid/external-plugin-v2/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/23643-android-external-plugin-v2)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
 ## Template ToDo list
@@ -28,7 +28,7 @@ Show the source code [Groovy、Java、Class] for Android Gradle Plugin and Custo
 
 - Using the IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "external-plugin-v2"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "external-build-libraries"</kbd> >
   <kbd>Install</kbd>
   
 - Manually:

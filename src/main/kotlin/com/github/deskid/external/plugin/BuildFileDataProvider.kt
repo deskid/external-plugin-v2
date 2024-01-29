@@ -36,12 +36,8 @@ object BuildFileDataProvider {
 
             val virtualFile: VirtualFile = VfsUtil.findFileByIoFile(buildFile, true) ?: throw RuntimeException("Failed to find " + buildFile.path)
 
-            val buildModel: GradleBuildModel = try {
-                GradleBuildModel.parseBuildFile(virtualFile, project)
-            } catch (e: Exception) {
-                GradleModelProvider.getInstance()
-                    .parseBuildFile(virtualFile, project)
-            }
+            val buildModel: GradleBuildModel = GradleModelProvider.getInstance()
+                .parseBuildFile(virtualFile, project)
 
             buildModels.add(buildModel)
         }
@@ -95,42 +91,34 @@ object BuildFileDataProvider {
                     e.printStackTrace()
                 }
 
-                if (value == null || value.trim { it <= ' ' }.length == 0) {
+                if (value == null || value.trim { it <= ' ' }
+                        .isEmpty()) {
                     val builder = StringBuilder()
 
                     val group: Any = artifactDependencyModel.group()
                     val name: Any = artifactDependencyModel.name()
                     val version: Any = artifactDependencyModel.version()
-                    //compat AS-3.2
-                    if (group is ResolvedPropertyModel && name is ResolvedPropertyModel && version is ResolvedPropertyModel) {
-                        try {
-                            val method: Method = ResolvedPropertyModel::class.java.getDeclaredMethod("getResultModel")
-                            method.isAccessible = true
-                            builder.append(
-                                method.invoke(group)
-                                    .toString()
-                            )
-                            builder.append(":")
-                            builder.append(
-                                method.invoke(name)
-                                    .toString()
-                            )
-                            builder.append(":")
-                            builder.append(
-                                method.invoke(version)
-                                    .toString()
-                            )
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
+
+                    try {
+                        val method: Method = ResolvedPropertyModel::class.java.getDeclaredMethod("getResultModel")
+                        method.isAccessible = true
+                        builder.append(
+                            method.invoke(group)
+                                .toString()
+                        )
+                        builder.append(":")
+                        builder.append(
+                            method.invoke(name)
+                                .toString()
+                        )
+                        builder.append(":")
+                        builder.append(
+                            method.invoke(version)
+                                .toString()
+                        )
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-//                    } else if (group is GradleNotNullValue && name is GradleNotNullValue && version is GradleNotNullValue) {
-//                        builder.append((group as GradleNotNullValue).value())
-//                        builder.append(":")
-//                        builder.append((name as GradleNotNullValue).value())
-//                        builder.append(":")
-//                        builder.append((version as GradleNotNullValue).value())
-//                    }
 
                     value = builder.toString()
                 }

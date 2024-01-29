@@ -6,7 +6,6 @@ import com.intellij.ide.projectView.TreeStructureProvider
 import com.intellij.ide.projectView.ViewSettings
 import com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode
 import com.intellij.ide.util.treeView.AbstractTreeNode
-import com.intellij.util.containers.ContainerUtil
 
 
 class GradlePluginTreeStructureProvider : TreeStructureProvider {
@@ -16,7 +15,7 @@ class GradlePluginTreeStructureProvider : TreeStructureProvider {
         if ((parent is ProjectViewProjectNode || parent is AndroidViewProjectNode) && GradleProjectInfo.getInstance(project)
                 .isBuildWithGradle
         ) {
-            val modifiedChildren: MutableList<AbstractTreeNode<*>> = ContainerUtil.newArrayList()
+            val modifiedChildren: MutableList<AbstractTreeNode<*>> = ArrayList()
             modifiedChildren.addAll(children)
             modifiedChildren.add(TreeNodeFactory.createExternalPluginsNode(project, settings))
             return modifiedChildren

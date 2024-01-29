@@ -1,6 +1,6 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# external-plugin-v2 Changelog
+# external-build-libraries Changelog
 
 ## [Unreleased]
 ### Added
