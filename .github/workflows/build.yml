@@ -70,7 +70,11 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
           ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
-
+      
+      - name: Init Local Properties
+        run: |
+          touch local.properties
+      
       # Build plugin
       - name: Build plugin
         run: ./gradlew buildPlugin
