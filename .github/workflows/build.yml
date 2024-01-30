@@ -58,6 +58,7 @@ jobs:
         id: properties
         shell: bash
         run: |
+          touch local.properties
           PROPERTIES="$(./gradlew properties --console=plain -q)"
           VERSION="$(echo "$PROPERTIES" | grep "^version:" | cut -f2- -d ' ')"
           CHANGELOG="$(./gradlew getChangelog --unreleased --no-header --console=plain -q)"
@@ -70,10 +71,6 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
           ./gradlew listProductsReleases # prepare list of IDEs for Plugin Verifier
-      
-      - name: Init Local Properties
-        run: |
-          touch local.properties
       
       # Build plugin
       - name: Build plugin
