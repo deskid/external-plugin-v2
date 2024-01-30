@@ -17,9 +17,7 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-Show the source code [Groovy、Java、Class] for Android Gradle Plugin and Custom Gradle Plugin. Such as External Libraries.
-
-<img src='https://raw.githubusercontent.com/Sunzxyong/external-plugin-support/master/external-plugins.png' width='320' height='206'/>
+Add tree node to show the source code [Groovy、Java、Class] for Android Gradle Plugin and Custom Gradle Plugin. Such as External Libraries.
 
 
 <!-- Plugin description end -->
